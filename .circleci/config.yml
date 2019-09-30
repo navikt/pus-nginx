@@ -1,12 +1,12 @@
 version: 2.1
 orbs:
-  pus: navikt/pus-orb@0.0.28
+  pus: navikt/pus-orb@0.0.30
 
 workflows:
   version: 2
   commit:
     jobs:
-      - pus/bygg-og-push-docker-image:
+      - pus/bygg-og-push-til-docker-hub:
           context: pus
           filters:
             branches:
