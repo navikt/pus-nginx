@@ -13,6 +13,10 @@ _shutdown_() {
 }
 trap _shutdown_ SIGTERM
 
+# Inject CONTEXT_PATH environment variable into default.conf
+sed "s#{{CONTEXT_PATH}}#$CONTEXT_PATH#g" default.conf > default.conf.temp
+mv default.conf.temp default.conf
+
 nginx -g "daemon off;" &
 pid=$!
 wait "$pid"
