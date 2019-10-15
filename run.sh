@@ -17,6 +17,8 @@ trap _shutdown_ SIGTERM
 sed "s/{{CONTEXT_PATH}}/$CONTEXT_PATH/g" /etc/nginx/conf.d/default.conf > default.conf.temp
 mv default.conf.temp /etc/nginx/conf.d/default.conf
 
+cat /etc/nginx/conf.d/default.conf
+
 nginx -g "daemon off;" &
 pid=$!
 wait "$pid"
